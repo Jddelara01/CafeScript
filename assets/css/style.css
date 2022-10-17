@@ -7,6 +7,60 @@ body {
     background-size: cover;
 }
 
+/* navigation bar */
+#navigationBar {
+    width: 100%;
+    margin-top: 2rem;
+    font-family: "yellowtail", cursive;
+    font-size: 2.5rem;
+}
+
+#navigationBar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#navigationBar li {
+    margin: 0 3rem;
+    list-style-type: none;
+    letter-spacing: .25rem;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Landing Page */
 #landingPage {
     font-family: "lato", sans-serif;
+    color: #EEA47FFF;
+    font-weight: bold;
+    margin: auto auto;
+    width: 50%;
+    background-color: rgba(0, 83, 156, 0.3);
+    text-align: center;
+    border-radius: 15px;
+}
+
+.landingPageContent {
+    font-size: 2rem;
+    margin: 1rem auto;
+    padding: 1rem;
+}
+
+.landingPageContent h1 {
+    letter-spacing: .50rem;
+    text-decoration: underline;
+    font-weight: 1000;
+}
+
+.landingPageBtn {
+    color: #000;
+    font-size: 2rem;
+    padding: .50rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    background-color: #EEA47FFF;
 }
