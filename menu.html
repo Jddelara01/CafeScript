@@ -33,11 +33,26 @@
         </ul>
     </header>
 
-    <section>
-        <div>
-            <h1>Menu Content</h1>
-        </div>
+    <section id="menuContainer">
+        <button class="tablink" onclick="openMenu('coffeeMenu', this)" id="defaultTab">Coffee</button>
+        <button class="tablink" onclick="openMenu('teaMenu', this)">Tea</button>
+        <button class="tablink" onclick="openMenu('pastryMenu', this)">Pastry</button>
     </section>
+
+    <div id="coffeeMenu" class="menuTab">
+        <button class="coffeeOptions" dataType="americano"><h2 class="optionName">Americano</h2> <p class="price">€2.75</p></button>
+        <button class="coffeeOptions" dataType="cappucino"><h2 class="optionName">Cappucino</h2> <p class="price">€3.15</p></button>
+        <button class="coffeeOptions" dataType="flatWhite"><h2 class="optionName">Flat White</h2> <p class="price">€3.75</p></button>
+        <button class="coffeeOptions" dataType="frapuccino"><h2 class="optionName">Frappucino</h2> <p class="price">€3.25</p></button>
+    </div>
+    <div id="teaMenu" class="menuTab">
+        <h2>Tea</h2>
+        <p>Ginger Tea</p>
+    </div>
+    <div id="pastryMenu" class="menuTab">
+        <h2>Pastry</h2>
+        <p>Croissant</p>
+    </div>
 
     <footer>
         <p>Footer Area</p>
