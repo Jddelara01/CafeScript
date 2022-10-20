@@ -117,3 +117,7 @@ a {
     cursor: pointer;
 }
 
+/* Your order page */
+.orderAmount {
+    width: 15%;
+}

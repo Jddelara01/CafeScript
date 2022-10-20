@@ -1,8 +1,8 @@
 // Creating the menu options for each specific menu
 let menus = {
   coffee: {
-    name: ["Americano", "Cappucino", "Flat White", "Frappucino"],
-    price: [2.75, 3.15, 3.75, 3.25]
+    name: ["Americano", "Cappucino", "Flat White", "Frappucino", "Espresso"],
+    price: [2.75, 3.15, 3.75, 3.25, 3.20]
   },
   tea: {
     name: ["Green", "Ginseng", "Black", "Jasmine"],
@@ -16,7 +16,13 @@ let menus = {
 
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
+  removeOrder();
 });
+
+
+// Display the element with id "defaultTab" when opening the menu page
+document.getElementById("defaultTab").click();
+
 
 /**
  * To open the menu that the user clicked 
@@ -48,52 +54,91 @@ function openMenu(tabName, element) {
   element.style.textDecoration = "underline";
 }
 
-// Display the element with id "defaultTab" when opening the menu page
-document.getElementById("defaultTab").click();
-
 
 /**
  * Display the menu options based on the tab clicked
  */
 function displayMenu(tab) {
   let menuType;
+  let menuName;
+  let priceArray;
   if (tab === "coffeeMenu") {
     menuType = document.getElementById("coffeeMenu");
     menuType.innerHTML = "";
     menuName = menus.coffee.name;
-    coffeePrice = menus.coffee.price;
+    priceArray = menus.coffee.price;
 
     // loop through all the coffee menu options and price and add each of them in a button
     for (let i = 0; i < menuName.length; i++) {
       menuType.innerHTML += `
-      <button class="btnOptions" dataType="${menuName[i]}"><h2 class="optionName">${menuName[i]}</h2> <p class="price">€${coffeePrice[i]}</p></button>
+      <button class="btnOptions" dataType="${menuName[i]}"><h2 class="optionName">${menuName[i]}</h2> <p class="price">€${priceArray[i].toFixed(2)}</p></button>
       `;
     }
   } else if (tab === "teaMenu") {
     menuType = document.getElementById("teaMenu");
     menuType.innerHTML = "";
     menuName = menus.tea.name;
-    coffeePrice = menus.tea.price;
+    priceArray = menus.tea.price;
 
     // loop through all the tea menu options and price and add each of them in a button
     for (let i = 0; i < menuName.length; i++) {
       menuType.innerHTML += `
-      <button class="btnOptions" dataType="${menuName[i]}"><h2 class="optionName">${menuName[i]}</h2> <p class="price">€${coffeePrice[i]}</p></button>
+      <button class="btnOptions" dataType="${menuName[i]}"><h2 class="optionName">${menuName[i]}</h2> <p class="price">€${priceArray[i].toFixed(2)}</p></button>
       `;
     }
   } else if (tab === "pastryMenu") {
     menuType = document.getElementById("pastryMenu");
     menuType.innerHTML = "";
     menuName = menus.pastry.name;
-    coffeePrice = menus.pastry.price;
+    priceArray = menus.pastry.price;
 
     // loop through all the pastry menu options and price and add each of them in a button
     for (let i = 0; i < menuName.length; i++) {
       menuType.innerHTML += `
-      <button class="btnOptions" dataType="${menuName[i]}"><h2 class="optionName">${menuName[i]}</h2> <p class="price">€${coffeePrice[i]}</p></button>
+      <button class="btnOptions" dataType="${menuName[i]}"><h2 class="optionName">${menuName[i]}</h2> <p class="price">€${priceArray[i].toFixed(2)}</p></button>
       `;
     }
   } else {
-    alert("Error found! Tab name is unavailable." );
+    alert("Error found! Tab name is unavailable.");
   }
+}
+
+
+/**
+ * To remove an order from the list
+ */
+ function removeOrder() {
+  let btnRemove = document.getElementsByClassName("removeOrderBtn");
+  for (let i = 0; i < btnRemove.length; i++) {
+    let btn = btnRemove[i];
+    btn.addEventListener("click", function (event) {
+      let clickedBtn = event.target
+      clickedBtn.parentElement.parentElement.parentElement.remove();
+
+      updateTotalPrice();
+    })
+  }
+}
+
+function updateAmount() {
+  let amountElement = document.getElementsByClassName("orderAmount");
+}
+
+
+/**
+ * Update the total price amount of your order/s
+ */
+function updateTotalPrice() {
+  let orderedItem = document.getElementById("orders");
+  let itemRows = orderedItem.getElementsByClassName("tableRows");
+  let totalAmount = 0;
+  for (let i = 0; i < itemRows.length; i++) {
+    let itemRow = itemRows[i];
+    let itemPrice = itemRow.getElementsByClassName("orderPrice")[0];
+    let itemAmount = itemRow.getElementsByClassName("orderAmount")[0];
+    let priceValue = parseFloat(itemPrice.innerText.replace("€", "")); // convert the price into a number
+    let amount = itemAmount.value;
+    totalAmount = totalAmount + (Math.round(((priceValue * amount) + Number.EPSILON) * 100) / 100);
+  }
+  document.getElementById("totalPrice").innerText = "€" + totalAmount.toFixed(2);
 }
