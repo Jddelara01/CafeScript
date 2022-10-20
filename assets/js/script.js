@@ -17,6 +17,7 @@ let menus = {
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
   removeOrder();
+  updateAmount()
 });
 
 
@@ -112,7 +113,7 @@ function displayMenu(tab) {
   for (let i = 0; i < btnRemove.length; i++) {
     let btn = btnRemove[i];
     btn.addEventListener("click", function (event) {
-      let clickedBtn = event.target
+      let clickedBtn = event.target;
       clickedBtn.parentElement.parentElement.parentElement.remove();
 
       updateTotalPrice();
@@ -120,8 +121,25 @@ function displayMenu(tab) {
   }
 }
 
+
+/**
+ * Update the amount of ordered item and check if the user inputs a number 
+ * and check so that the amount input is not less than or equals to 0
+ */
 function updateAmount() {
-  let amountElement = document.getElementsByClassName("orderAmount");
+  let amountElements = document.getElementsByClassName("orderAmount");
+  for (let i = 0; i < amountElements.length; i++) { 
+    let amountInput = amountElements[i];
+
+    amountInput.addEventListener("change", function (event) {
+      let changedInput = event.target;
+      if (isNaN(changedInput.value) || changedInput.value <= 0) {
+        changedInput.value = 1;
+        console.log(changedInput.value);
+      }
+      updateTotalPrice();
+    })
+  }
 }
 
 
@@ -138,7 +156,9 @@ function updateTotalPrice() {
     let itemAmount = itemRow.getElementsByClassName("orderAmount")[0];
     let priceValue = parseFloat(itemPrice.innerText.replace("€", "")); // convert the price into a number
     let amount = itemAmount.value;
-    totalAmount = totalAmount + (Math.round(((priceValue * amount) + Number.EPSILON) * 100) / 100);
+    totalAmount = totalAmount + (Math.round(((priceValue * amount) + Number.EPSILON) * 100) / 100); // get total amount and round number to 2 decimal places
   }
-  document.getElementById("totalPrice").innerText = "€" + totalAmount.toFixed(2);
+
+  totalAmount = totalAmount.toFixed(2);
+  document.getElementById("totalPrice").innerText = "€" + totalAmount;
 }
