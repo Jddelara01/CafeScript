@@ -14,8 +14,13 @@ const menus = {
   }
 };
 
+// ordered items array
+let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || [];
+let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];;
+
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
+  updateOrder();
   removeOrder();
   updateAmount();
 });
@@ -23,7 +28,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 // Display the element with id "defaultTab" when opening the menu page
 document.getElementById("defaultTab").click();
-
 
 /**
  * To open the menu that the user clicked 
@@ -106,11 +110,54 @@ function displayMenu(tab) {
   addOrder();
 }
 
+/**
+ * Add selected item to Your Order
+ */
+function addOrder() {
+  let orderType = document.getElementsByClassName("btnOptions");
+
+  for (let i = 0; i < orderType.length; i++) {
+    let order = orderType[i];
+    order.addEventListener("click", function (event) {
+      let clickedItem = event.target;
+      let itemName = clickedItem.getAttribute("dataType");
+      let itemPrice = parseFloat(clickedItem.getElementsByClassName("price")[0].innerHTML.replace("€", "")); // convert the price into a number
+
+      itemPrice = itemPrice.toFixed(2);
+      console.log(itemName, itemPrice);
+
+      orderedItems.push(itemName);
+      localStorage.setItem("ITEM", JSON.stringify(orderedItems));
+      orderedItemsPrice.push(itemPrice);
+      localStorage.setItem("PRICE", JSON.stringify(orderedItemsPrice));
+
+      updateOrder();
+    })
+  }
+}
+
+function updateOrder() {
+  let yourOrder = document.getElementsByClassName("tableHeadings")[0];
+  for (let i = 0; i < orderedItems.length; i++) {
+    const newTR = `
+        <tr class="tableRows">
+            <td class="orderItem">${orderedItems[i]}</td>
+            <td class="orderPrice">€${orderedItemsPrice[i]}</td>
+            <td>
+                <input class="orderAmount" type="number" value="1">
+                <button class="removeOrderBtn"><i class="fa-solid fa-trash"></i></button>
+            </td>
+        </tr>`;
+    yourOrder.insertAdjacentHTML("afterend", newTR);
+  }
+
+  console.log(document.getElementsByClassName("tableRows"));
+}
 
 /**
  * To remove an order from the list
  */
-function removeOrder() {
+ function removeOrder() {
   let btnRemove = document.getElementsByClassName("removeOrderBtn");
   for (let i = 0; i < btnRemove.length; i++) {
     let btn = btnRemove[i];
@@ -144,7 +191,6 @@ function updateAmount() {
   }
 }
 
-
 /**
  * Update the total price amount of your order/s
  */
@@ -163,31 +209,4 @@ function updateTotalPrice() {
 
   totalAmount = totalAmount.toFixed(2);
   document.getElementById("totalPrice").innerText = "€" + totalAmount;
-}
-
-function addOrder() {
-  let orderType = document.getElementsByClassName("btnOptions");
-
-  for (let i = 0; i < orderType.length; i++) {
-    let order = orderType[i];
-    order.addEventListener("click", function (event) {
-      let clickedItem = event.target;
-      let itemName = clickedItem.getAttribute("dataType");
-      let itemPrice = parseFloat(clickedItem.getElementsByClassName("price")[0].innerHTML.replace("€", "")); // convert the price into a number
-      let yourOrder = document.getElementsByClassName("tableHeadings")[0];
-
-      yourOrder +=  `
-      <tr class="tableRows">
-          <td class="orderItem">€${itemName}</td>
-          <td class="orderPrice">€${itemPrice}</td>
-          <td>
-              <input class="orderAmount" type="number" value="1">
-              <button class="removeOrderBtn"><i class="fa-solid fa-trash"></i></button>
-          </td>
-      </tr>`;
-
-      itemPrice = itemPrice.toFixed(2);
-      console.log(yourOrder);
-    })
-  }
 }
