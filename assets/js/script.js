@@ -1,5 +1,5 @@
 // Creating the menu options for each specific menu
-let menus = {
+const menus = {
   coffee: {
     name: ["Americano", "Cappucino", "Flat White", "Frappucino", "Espresso"],
     price: [2.75, 3.15, 3.75, 3.25, 3.20]
@@ -17,7 +17,7 @@ let menus = {
 document.addEventListener('DOMContentLoaded', (event) => {
   console.log('DOM fully loaded and parsed');
   removeOrder();
-  updateAmount()
+  updateAmount();
 });
 
 
@@ -102,13 +102,15 @@ function displayMenu(tab) {
   } else {
     alert("Error found! Tab name is unavailable.");
   }
+
+  addOrder();
 }
 
 
 /**
  * To remove an order from the list
  */
- function removeOrder() {
+function removeOrder() {
   let btnRemove = document.getElementsByClassName("removeOrderBtn");
   for (let i = 0; i < btnRemove.length; i++) {
     let btn = btnRemove[i];
@@ -128,7 +130,7 @@ function displayMenu(tab) {
  */
 function updateAmount() {
   let amountElements = document.getElementsByClassName("orderAmount");
-  for (let i = 0; i < amountElements.length; i++) { 
+  for (let i = 0; i < amountElements.length; i++) {
     let amountInput = amountElements[i];
 
     amountInput.addEventListener("change", function (event) {
@@ -161,4 +163,31 @@ function updateTotalPrice() {
 
   totalAmount = totalAmount.toFixed(2);
   document.getElementById("totalPrice").innerText = "€" + totalAmount;
+}
+
+function addOrder() {
+  let orderType = document.getElementsByClassName("btnOptions");
+
+  for (let i = 0; i < orderType.length; i++) {
+    let order = orderType[i];
+    order.addEventListener("click", function (event) {
+      let clickedItem = event.target;
+      let itemName = clickedItem.getAttribute("dataType");
+      let itemPrice = parseFloat(clickedItem.getElementsByClassName("price")[0].innerHTML.replace("€", "")); // convert the price into a number
+      let yourOrder = document.getElementsByClassName("tableHeadings")[0];
+
+      yourOrder +=  `
+      <tr class="tableRows">
+          <td class="orderItem">€${itemName}</td>
+          <td class="orderPrice">€${itemPrice}</td>
+          <td>
+              <input class="orderAmount" type="number" value="1">
+              <button class="removeOrderBtn"><i class="fa-solid fa-trash"></i></button>
+          </td>
+      </tr>`;
+
+      itemPrice = itemPrice.toFixed(2);
+      console.log(yourOrder);
+    })
+  }
 }
