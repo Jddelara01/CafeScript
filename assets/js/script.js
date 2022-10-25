@@ -14,7 +14,7 @@ const menus = {
   }
 };
 
-// ordered items array
+// declare ordered items array
 let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || [];
 let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];;
 
@@ -126,87 +126,57 @@ function addOrder() {
       itemPrice = itemPrice.toFixed(2);
       console.log(itemName, itemPrice);
 
-      orderedItems.push(itemName);
-      localStorage.setItem("ITEM", JSON.stringify(orderedItems));
-      orderedItemsPrice.push(itemPrice);
-      localStorage.setItem("PRICE", JSON.stringify(orderedItemsPrice));
+      if (notOrdered(itemName)) {
+        console.log("Not yet ordered");
+        orderedItems.push(itemName);
+        localStorage.setItem("ITEM", JSON.stringify(orderedItems));
+        orderedItemsPrice.push(itemPrice);
+        localStorage.setItem("PRICE", JSON.stringify(orderedItemsPrice));
+      } else {
+        alert("You have already ordered " + itemName + ". You can add more in the 'Your Order' page.")
+      }
 
       updateOrder();
     })
   }
 }
 
-function updateOrder() {
-  let yourOrder = document.getElementsByClassName("tableHeadings")[0];
+/**
+ * Check if the order is already ordered
+ */
+function notOrdered(val) {
   for (let i = 0; i < orderedItems.length; i++) {
-    const newTR = `
-        <tr class="tableRows">
-            <td class="orderItem">${orderedItems[i]}</td>
-            <td class="orderPrice">€${orderedItemsPrice[i]}</td>
-            <td>
-                <input class="orderAmount" type="number" value="1">
-                <button class="removeOrderBtn"><i class="fa-solid fa-trash"></i></button>
-            </td>
-        </tr>`;
-    yourOrder.insertAdjacentHTML("afterend", newTR);
+    if (val === orderedItems[i]) {
+      return false;
+    }
   }
-
-  console.log(document.getElementsByClassName("tableRows"));
+  return true;
 }
 
-/**
- * To remove an order from the list
- */
- function removeOrder() {
-  let btnRemove = document.getElementsByClassName("removeOrderBtn");
-  for (let i = 0; i < btnRemove.length; i++) {
-    let btn = btnRemove[i];
-    btn.addEventListener("click", function (event) {
-      let clickedBtn = event.target;
-      clickedBtn.parentElement.parentElement.parentElement.remove();
-
-      updateTotalPrice();
-    })
-  }
+/*
+let userDetails = {
+  name: "Jubril",
+  email: "jubril@gmail.com"
 }
 
 
-/**
- * Update the amount of ordered item and check if the user inputs a number 
- * and check so that the amount input is not less than or equals to 0
- */
-function updateAmount() {
-  let amountElements = document.getElementsByClassName("orderAmount");
-  for (let i = 0; i < amountElements.length; i++) {
-    let amountInput = amountElements[i];
-
-    amountInput.addEventListener("change", function (event) {
-      let changedInput = event.target;
-      if (isNaN(changedInput.value) || changedInput.value <= 0) {
-        changedInput.value = 1;
-        console.log(changedInput.value);
-      }
-      updateTotalPrice();
-    })
-  }
-}
-
-/**
- * Update the total price amount of your order/s
- */
-function updateTotalPrice() {
-  let orderedItem = document.getElementById("orders");
-  let itemRows = orderedItem.getElementsByClassName("tableRows");
-  let totalAmount = 0;
-  for (let i = 0; i < itemRows.length; i++) {
-    let itemRow = itemRows[i];
-    let itemPrice = itemRow.getElementsByClassName("orderPrice")[0];
-    let itemAmount = itemRow.getElementsByClassName("orderAmount")[0];
-    let priceValue = parseFloat(itemPrice.innerText.replace("€", "")); // convert the price into a number
-    let amount = itemAmount.value;
-    totalAmount = totalAmount + (Math.round(((priceValue * amount) + Number.EPSILON) * 100) / 100); // get total amount and round number to 2 decimal places
+let orders = [
+  {
+    id: 1,
+    title: "orange",
+    qty: 2,
+    price: 20,
+    name: "jubril"
+  },
+  {
+    id: 2,
+    title: "apples",
+    qty: 2,
+    price: 20,
+    name: "sam"
   }
 
-  totalAmount = totalAmount.toFixed(2);
-  document.getElementById("totalPrice").innerText = "€" + totalAmount;
-}
+]
+
+let ordersByUser  = orders.filter(order => order.name === userDetails.name)
+*/
