@@ -98,16 +98,17 @@ function addOrder() {
       itemPrice = itemPrice.toFixed(2);
       console.log(itemName, itemPrice);
 
+      // Add ordered item into the local storage array
       if (notOrdered(itemName)) {
-        console.log("Not yet ordered");
         orderedItems.push(itemName);
         localStorage.setItem("ITEM", JSON.stringify(orderedItems));
         orderedItemsPrice.push(itemPrice);
         localStorage.setItem("PRICE", JSON.stringify(orderedItemsPrice));
+        updateNotification();
       } else {
         alert("You have already ordered " + itemName + ". You can add more in the 'Your Order' page.")
       }
-      
+
     })
   }
 }
