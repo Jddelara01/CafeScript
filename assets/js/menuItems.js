@@ -14,7 +14,7 @@ const menus = {
     }
   };
   
-  // declare ordered items array
+  // declare ordered items array to be stored locally and be used to rendered ordered items in Your Order page
   let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || [];
   let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];;
   
