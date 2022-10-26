@@ -209,9 +209,5 @@ a {
     outline: none;
     border-radius: 5px;
     width: 100%;
-}
-
-.signUpBtnContainer {
-    width: 50%;
-    background-color: red;
+    margin-bottom: 2rem;
 }
