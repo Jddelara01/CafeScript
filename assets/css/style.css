@@ -37,6 +37,17 @@ a {
     color: #000;
 }
 
+#loginPage {
+    display: none;
+}
+
+#logOut {
+    font-size: 2rem;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 /* Landing Page */
 #landingPage {
     font-family: "lato", sans-serif;
