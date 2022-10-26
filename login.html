@@ -22,7 +22,7 @@
     <header id="navigationBar">
         <ul>
             <li>
-                <a href="index.html" class="active">Home</a>
+                <a href="index.html">Home</a>
             </li>
             <li>
                 <a href="menu.html">Menu</a>
@@ -31,7 +31,7 @@
                 <a href="order.html" id="notification">Your Order</a>
             </li>
             <li id="loginPage">
-                <a href="login.html">Log In</a>
+                <a href="login.html" class="active">Log In</a>
             </li>
             <li id="orderHistory" class="authenticated">
                 <a href="userOrders.html">Name </a>
@@ -40,18 +40,21 @@
         </ul>
     </header>
 
-    <!-- Home page intro section -->
-    <section id="landingPage">
-        <div class="landingPageContent">
-            <h1>CafeScript</h1>
-            <p>Coffee <i class="fa-solid fa-mug-hot"></i></p>
-            <p><i class="fa-solid fa-code"></i> Code</p>
-            <p>Repeat <i class="fa-solid fa-repeat"></i></p>
-
-            <button class="landingPageBtn">
-               <a href="menu.html">Order Now!</a>
-            </button>
+    <div id="loginPageWrapper">
+        <h1>Please LOGIN</h1>
+        <div id="loginMsg">
+            <p>Please enter your username and password</p>
+            <p>If you are not a registered user, please sign-up by clicking the sign-up button</p>
         </div>
+
+        <form id="login-form">
+            <input type="email" name="email" id="email-field" class="login-form-field" placeholder="Email">
+            <input type="password" name="password" id="password-field" class="login-form-field" placeholder="Password">
+            <input type="submit" value="Login" class="login-form-btn">
+            <button onclick="document.getElementById('modal').style.display='block'" class="login-form-btn">Sign-Up</button>
+        </form>
+    </div>
+
     </section>
 
     <footer>
@@ -63,7 +66,6 @@
 
     <!-- JavaScript-->
     <script src="assets/js/data.js"></script>
-    <script src="assets/js/orderNotification.js"></script>
 </body>
 
 </html>
