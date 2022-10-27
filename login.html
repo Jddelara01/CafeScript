@@ -34,7 +34,7 @@
                 <a href="login.html" class="active">Log In</a>
             </li>
             <li id="orderHistory" class="authenticated">
-                <a href="userOrders.html">Name </a>
+                <a href="userOrders.html" id="displayUser"></a>
             </li>
             <button id="logOut" class="authenticated"><i class="fa-solid fa-right-from-bracket"></i></button>
         </ul>
@@ -47,7 +47,7 @@
             <p>If you are not a registered user, please sign-up by clicking the sign-up button</p>
         </div>
 
-        <form id="login-form" action="index.html">
+        <form id="login-form">
             <input type="email" name="email" id="loginEmail" class="login-form-field" placeholder="Email" required>
             <input type="password" name="password" id="loginPsw" class="login-form-field" placeholder="Password" required>
             <button type="submit" id="loginButton" class="login-form-btn ">Login</button>
@@ -68,6 +68,7 @@
     <!-- JavaScript-->
     <script src="assets/js/data.js"></script>
     <script src="assets/js/orderNotification.js"></script>
+    <script src="assets/js/authenticate.js"></script>
     <script src="assets/js/userLogin.js"></script>
 </body>
 

@@ -22,4 +22,7 @@ const menus = {
 // user details array to be stored in localStorage  and be used to hold registired users details
 // if localStorage for USERS is not empty, convert it to array to be able to manipulate it else, set as an empty array
 let registeredUsers = localStorage.USERS ? JSON.parse(localStorage.USERS) : []; 
+
+
+let currentUser = localStorage.getItem("CURRENT");
   

@@ -24,6 +24,8 @@ function login() {
 
         if (findUser) {
             if (findUser.password === userPsw) {
+                currentUser = findUser.name
+                localStorage.setItem("CURRENT", currentUser);
                 alert("Hi " + findUser.name);
             } else {
                 alert("Incorrect email/password, please try again.");
