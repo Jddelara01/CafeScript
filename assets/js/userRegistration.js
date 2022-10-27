@@ -21,7 +21,7 @@ function getUser() {
             alert("Password already used, choose another password!");
         } else {
             registerUser();
-            //alert("Congratulations, you have successully signed up! You can now login!");
+            alert("Congratulations, you have successully signed up! You can now login!");
         }
     })
 }

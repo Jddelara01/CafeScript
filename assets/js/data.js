@@ -15,10 +15,11 @@ const menus = {
   };
   
   // ordered items array to be stored in localStorage and be used to rendered ordered items in Your Order page
-  let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || []; // convert string into an array or stay as an empty array
+  let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || []; // convert string into an array or set as an empty array
   let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];;
 
 
 // user details array to be stored in localStorage  and be used to hold registired users details
-let registeredUsers = localStorage.USERS ? JSON.parse(localStorage.USERS) : [];
+// if localStorage for USERS is not empty, convert it to array to be able to manipulate it else, set as an empty array
+let registeredUsers = localStorage.USERS ? JSON.parse(localStorage.USERS) : []; 
   
