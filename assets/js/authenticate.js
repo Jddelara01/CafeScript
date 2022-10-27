@@ -2,9 +2,14 @@
 
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed for authentication');
+    logOutUser();
     authenticated();
 });
 
+
+/**
+ * Check if user logged in successfully then display person name in nav bar
+ */
 function authenticated() {
     let displayName = document.getElementById("orderHistory");
     let displayLogoutBtn = document.getElementById("logOut");
@@ -21,4 +26,16 @@ function authenticated() {
         displayLogoutBtn.style.display = "none";
         hideLink.style.display = "block";
     }
+}
+
+
+/**
+ * Logs out the current user
+ */
+function logOutUser() {
+    let logOutBtn = document.getElementById("logOut");
+    logOutBtn.addEventListener("click", function (event) {
+        localStorage.removeItem("CURRENT");
+        location.reload();
+    })
 }
