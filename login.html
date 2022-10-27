@@ -47,11 +47,11 @@
             <p>If you are not a registered user, please sign-up by clicking the sign-up button</p>
         </div>
 
-        <form id="login-form">
-            <input type="email" name="email" id="loginEmail" class="login-form-field" placeholder="Email">
-            <input type="password" name="password" id="loginPsw" class="login-form-field" placeholder="Password">
+        <form id="login-form" action="index.html">
+            <input type="email" name="email" id="loginEmail" class="login-form-field" placeholder="Email" required>
+            <input type="password" name="password" id="loginPsw" class="login-form-field" placeholder="Password" required>
+            <button type="submit" id="loginButton" class="login-form-btn ">Login</button>
         </form>
-        <button id="loginButton" class="login-form-btn ">Login</button>
         <a href="signup.html">
             <button class="signUpBtn">Sign Up</button>
         </a>

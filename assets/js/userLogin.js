@@ -8,27 +8,33 @@ document.addEventListener('DOMContentLoaded', (event) => {
  */
 function loginUser() {
     let btnSelected = document.getElementById("loginButton");
-    btnSelected.addEventListener("click", function () {
-        login();
-    })
+    btnSelected.addEventListener("click", login);
 }
 
+/**
+ * if user login details is correct, user can login else user has to re-enter login details
+ */
 function login() {
     let userEmail = document.getElementById("loginEmail").value;
     let userPsw = document.getElementById("loginPsw").value;
     if (localStorage.getItem("USERS")) {
         let usersStored = JSON.parse(localStorage.getItem("USERS")); // convert to array
-        let userMatched = usersStored.filter(user => {
-            return userEmail === user.email && userPsw === user.password;
-        })
 
-        if (userMatched.length) {
-            console.log("HI!" + JSON.stringify(usersStored));
-            //alert("You have successfully login!" );
+        let findUser = usersStored.find(user => user.email === userEmail);
+
+        if (findUser) {
+            if (findUser.password === userPsw) {
+                alert("Hi " + findUser.name);
+            } else {
+                alert("Incorrect email/password, please try again.");
+                event.preventDefault();
+            }
         } else {
             alert("Incorrect email/password, please try again.");
+            event.preventDefault();
         }
     } else {
         alert("Incorrect email/password, please try again.");
+        event.preventDefault();
     }
 }
