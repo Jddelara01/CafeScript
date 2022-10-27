@@ -1,28 +1,53 @@
 // Creating the menu options for each specific menu
 const menus = {
-    coffee: {
-      name: ["Americano", "Cappucino", "Flat White", "Frappucino", "Espresso"],
-      price: [2.75, 3.15, 3.75, 3.25, 3.20]
-    },
-    tea: {
-      name: ["Green", "Ginseng", "Black", "Jasmine"],
-      price: [1.80, 3.00, 1.80, 2.50]
-    },
-    pastry: {
-      name: ["Croissant", "Chocolate Croissant", "Macarons", "Danish Bread"],
-      price: [3.10, 3.25, 2.50, 3.50]
-    }
-  };
+  coffee: {
+    name: ["Americano", "Cappucino", "Flat White", "Frappucino", "Espresso"],
+    price: [2.75, 3.15, 3.75, 3.25, 3.20]
+  },
+  tea: {
+    name: ["Green", "Ginseng", "Black", "Jasmine"],
+    price: [1.80, 3.00, 1.80, 2.50]
+  },
+  pastry: {
+    name: ["Croissant", "Chocolate Croissant", "Macarons", "Danish Bread"],
+    price: [3.10, 3.25, 2.50, 3.50]
+  }
+};
+
+let receipt = {
+  id: "1",
+  items: {
+    item: "Americano",
+    price: "2.75",
+    item: "Croissant",
+    price: "3.10",
+    item: "Macarons",
+    price: "2.50"
+  }
+}
+
+function runReceipt() {
+  let jsonObj = JSON.stringify(receipt);
+  console.log(jsonObj);
   
-  // ordered items array to be stored in localStorage and be used to rendered ordered items in Your Order page
-  let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || []; // convert string into an array or set as an empty array
-  let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];;
+  localStorage.setItem("receipt", jsonObj);
+
+  let str = localStorage.getItem("receipt", jsonObj);
+  console.log(str);
+
+  let parsedObj = JSON.parse(str);
+  console.log(parsedObj.items);
+}
+
+
+// ordered items array to be stored in localStorage and be used to rendered ordered items in Your Order page
+let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || []; // convert string into an array or set as an empty array
+let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];;
 
 
 // user details array to be stored in localStorage  and be used to hold registired users details
 // if localStorage for USERS is not empty, convert it to array to be able to manipulate it else, set as an empty array
-let registeredUsers = localStorage.USERS ? JSON.parse(localStorage.USERS) : []; 
+let registeredUsers = localStorage.USERS ? JSON.parse(localStorage.USERS) : [];
 
-
+// store user name once user has successfully logged in
 let currentUser = localStorage.getItem("CURRENT");
-  
