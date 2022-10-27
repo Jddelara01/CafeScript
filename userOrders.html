@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CafeScript coffee shop in Dublin, Ireland">
+    <meta name="keywords" content="cafe, coffee shop, Dublin, Ireland">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Yellowtail&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>CafeScript</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header id="navigationBar">
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="menu.html">Menu</a>
+            </li>
+            <li>
+                <a href="order.html" id="notification">Your Order</a>
+            </li>
+            <li id="loginPage">
+                <a href="login.html">Log In</a>
+            </li>
+            <li id="orderHistory" class="authenticated">
+                <a href="userOrders.html" id="displayUser" class="active"></a>
+            </li>
+            <button id="logOut" class="authenticated"><i class="fa-solid fa-right-from-bracket"></i></button>
+        </ul>
+    </header>
+
+    <div id="userOrdersWrapper">
+
+    </div>
+
+    <!-- Font Awesome script-->
+    <script src="https://kit.fontawesome.com/238c059d41.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript-->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/orderNotification.js"></script>
+    <script src="assets/js/authenticate.js"></script>
+</body>
+
+</html>

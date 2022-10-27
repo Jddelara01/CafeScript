@@ -16,29 +16,51 @@ const menus = {
 
 let receipt = {
   id: "1",
-  items: {
-    item: "Americano",
-    price: "2.75",
-    item: "Croissant",
-    price: "3.10",
-    item: "Macarons",
-    price: "2.50"
-  }
+  items: [{
+      item: "Americano",
+      price: "2.75"
+    },
+    {
+      item: "Croissant",
+      price: "3.10"
+    },
+    {
+      item: "Macarons",
+      price: "2.50"
+    },
+  ],
+  username: "John"
 }
 
 function runReceipt() {
+
+  console.log(receipt.items);
   let jsonObj = JSON.stringify(receipt);
   console.log(jsonObj);
-  
+
   localStorage.setItem("receipt", jsonObj);
 
   let str = localStorage.getItem("receipt", jsonObj);
   console.log(str);
-
-  let parsedObj = JSON.parse(str);
-  console.log(parsedObj.items);
 }
 
+function showOrder() {
+  let parsedObj = JSON.parse(localStorage.getItem("receipt"));
+  console.log(parsedObj.items[1].item);
+
+  if (parsedObj.username === currentUser) {
+    let displayOrder = document.getElementById("userOrdersWrapper");
+    displayOrder.innerHTML += `
+       <div>ID: ${parsedObj.id}</div>
+       `;
+    for (let i = 0; i < parsedObj.items.length; i++) {
+      console.log("Check " + i);
+      displayOrder.innerHTML += `
+    <div class="userOrder">${parsedObj.items[i].item} <span>${parsedObj.items[i].price}</span></div> 
+    `;
+    }
+  }
+}
 
 // ordered items array to be stored in localStorage and be used to rendered ordered items in Your Order page
 let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || []; // convert string into an array or set as an empty array
@@ -51,3 +73,5 @@ let registeredUsers = localStorage.USERS ? JSON.parse(localStorage.USERS) : [];
 
 // store user name once user has successfully logged in
 let currentUser = localStorage.getItem("CURRENT");
+
+showOrder();

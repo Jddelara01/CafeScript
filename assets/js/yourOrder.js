@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
-    runReceipt();
     updateOrder();
     removeOrder();
     updateAmount();
@@ -115,6 +114,7 @@ function selectBtnOption() {
 
         selectedBtn.addEventListener("click", function (event) {
             let select = event.target;
+            runReceipt();
             if (select.innerHTML === "ORDER" && orderedItems.length > 0) {
                 alert("Please confirm your order!");
             } else if (select.innerHTML === "CANCEL") {
