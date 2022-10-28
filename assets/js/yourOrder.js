@@ -111,12 +111,10 @@ function selectBtnOption() {
     let btnOptions = document.getElementsByClassName("yourOrderBtn");
     for (let i = 0; i < btnOptions.length; i++) {
         let selectedBtn = btnOptions[i];
-
         selectedBtn.addEventListener("click", function (event) {
             let select = event.target;
-            runReceipt();
             if (select.innerHTML === "ORDER" && orderedItems.length > 0) {
-                alert("Please confirm your order!");
+                confirmOrder();
             } else if (select.innerHTML === "CANCEL") {
                 console.log(select.innerHTML);
                 localStorage.removeItem("ITEM");
@@ -128,5 +126,64 @@ function selectBtnOption() {
                 alert("You have not ordered anything!")
             };
         })
+    }
+}
+
+/**
+ * confirmation box
+ */
+function confirmOrder() {
+    //let msg;
+    if (!currentUser) {
+        if (confirm("You need to first login to proceed with your order")) {
+            window.location.href = "login.html"
+        } else {
+            location.reload();
+        }
+    } else {
+        if (confirm("Please confirm your order!")) {
+            orderConfirmed();
+            window.location.href = "userOrders.html"
+            showOrder();
+        } else {
+            location.reload();
+        }
+    }
+}
+
+/**
+ * store your order in localStorage and display receipt in user page(navbar link displaying current user name)
+ */
+function orderConfirmed() {
+    generateOrderNumber();
+
+    let value = [];
+
+    for (let i = 0; i < orderedItems.length; i++) {
+        value.push({
+            "item": orderedItems[i],
+            "price": orderedItemsPrice[i]
+        });
+    }
+
+    let receipt = {
+        id: count,
+        items: value,
+        username: currentUser
+    }
+
+    let jsonObj = JSON.stringify(receipt);
+    localStorage.setItem("RECEIPT", jsonObj);
+}
+
+/**
+ * generate an order number per new order
+ */
+function generateOrderNumber() {
+    if (!localStorage.COUNT) {
+        localStorage.setItem("COUNT", "1")
+    } else {
+        let orderNum = Number(localStorage.getItem("COUNT"));
+        localStorage.setItem("COUNT", ++orderNum);
     }
 }
