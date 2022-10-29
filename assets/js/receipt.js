@@ -1,27 +1,30 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed for receipt.js');
     showOrder();
+    console.log(userOrders[0].id);
 });
 
 
 /**
- * display order receipt
+ * display order receipt per user
  */
- function showOrder() {
+function showOrder() {
     let displayOrder = document.getElementById("userOrdersWrapper");
-    if (userOrders.username === currentUser) {
-        displayOrder.innerHTML += `
-            <div>ID: ${userOrders.id}</div>
-        `;
-        for (let i = 0; i < userOrders.items.length; i++) {
-            console.log("Check " + i);
+    for (let i = 0; i < userOrders.length; i++) {
+        if (userOrders[i].username === currentUser) {
             displayOrder.innerHTML += `
-                <div class="userOrder">${userOrders.items[i].item} <span>${userOrders.items[i].price}</span></div> 
+                <div>ID: ${userOrders[i].id}</div>
             `;
+            for (let j = 0; j < userOrders[i].items.length; j++) {
+                console.log("Check " + j);
+                displayOrder.innerHTML += `
+                    <div class="userOrder">${userOrders[i].items[j].item} <span>${userOrders[i].items[j].price}</span></div> 
+                `;
+            }
+        } else {
+            displayOrder.innerHTML += `
+                <h2>You have no orders...</h2>
+            `
         }
-    } else {
-        displayOrder.innerHTML += `
-            <h2>You have no orders...</h2>
-        `
     }
 }

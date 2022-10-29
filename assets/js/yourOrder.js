@@ -171,13 +171,15 @@ function orderConfirmed() {
         });
     }
 
+    // create new object
     let receipt = {
         id: count,
         items: value,
         username: currentUser
-    }
+    };
 
-    let jsonObj = JSON.stringify(receipt);
+    userOrders.push(receipt)
+    let jsonObj = JSON.stringify(userOrders);
     localStorage.setItem("RECEIPT", jsonObj);
 }
 
