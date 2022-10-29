@@ -143,6 +143,11 @@ function confirmOrder() {
     } else {
         if (confirm("Please confirm your order!")) {
             orderConfirmed();
+            localStorage.removeItem("ITEM");
+            localStorage.removeItem("PRICE");
+            orderedItems = [];
+            updateOrder();
+            updateNotification();
             window.location.href = "userOrders.html"
             showOrder();
         } else {
