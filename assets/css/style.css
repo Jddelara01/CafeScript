@@ -119,6 +119,7 @@ a {
     width: 60%;
     margin: auto auto;
     justify-content: space-around;
+    font-family: "lato", sans-serif;
 }
 
 .tablink {
@@ -171,6 +172,8 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: "lato", sans-serif;
+    color: #000;
 }
 
 #orders {
@@ -189,6 +192,7 @@ a {
 
 .tableHeadings th {
     border: 1px solid;
+    font-weight: bolder;
 }
 
 .tableRows {
@@ -225,6 +229,7 @@ a {
     margin: auto auto;
     background-color: rgba(0, 83, 156, 0.3);
     font-size: 1.25rem;
+    font-family: "lato", sans-serif;
 }
 
 #loginMsg {
@@ -261,4 +266,30 @@ a {
 .signUpBtn {
     line-height: 50px;
     margin: 15px;
+}
+
+/* Sign up page */
+#signUpWrapper {
+    width: 80%;
+    margin: auto auto;
+    font-family: "lato", sans-serif;
+}
+
+#signUpWrapper input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+#signUpWrapper label {
+    font-size: 1.5rem;
+}
+
+#signUpWrapper button {
+    margin: 20px 25px 10px 0;
+    line-height: 50px;
 }

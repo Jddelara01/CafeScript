@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     getUser();
+    cancelReg();
 });
 
 let uName = document.getElementById("userName");
@@ -23,6 +24,16 @@ function getUser() {
             registerUser();
             alert("Congratulations, you have successully signed up! You can now login!");
         }
+    })
+}
+
+/**
+ * Cancel user registration
+ */
+function cancelReg() {
+    let btnCancel = document.getElementById("cancelBtn");
+    btnCancel.addEventListener("click", function () {
+        window.location.href = "login.html"
     })
 }
 

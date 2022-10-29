@@ -56,6 +56,7 @@ function removeOrder() {
                 orderedItemsPrice.splice(i, 1);
                 localStorage.setItem("ITEM", JSON.stringify(orderedItems));
                 localStorage.setItem("PRICE", JSON.stringify(orderedItemsPrice));
+                location.reload();
             }
 
             updateTotalPrice();
