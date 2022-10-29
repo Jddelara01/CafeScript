@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     removeOrder();
     updateAmount();
     selectBtnOption();
+    console.log(totalOrderedPrice);
 });
 
 /**
@@ -73,8 +74,8 @@ function removeOrder() {
  */
 function updateAmount() {
     let amountElements = document.getElementsByClassName("orderAmount");
-    //let reverseArr = orderedItemsAmount.reverse(); 
-    for (let i = 0; i < amountElements.length; i++) {
+
+    for (let i = amountElements.length - 1; i >= 0 ; i--) {
         let amountInput = amountElements[i];
 
         amountInput.addEventListener("change", function (event) {
@@ -83,9 +84,9 @@ function updateAmount() {
                 changedInput.value = 1;
                 console.log(changedInput.value);
             } else {
-                console.log(reverseArr);
-                //orderedItemsAmount[i] = changedInput.value;
-                //localStorage.setItem("AMOUNT", JSON.stringify(orderedItemsAmount));
+                orderedItemsAmount[i] = changedInput.value;
+                console.log(orderedItemsAmount[i]);
+                localStorage.setItem("AMOUNT", JSON.stringify(orderedItemsAmount));
             }
             updateTotalPrice();
         })
@@ -110,6 +111,7 @@ function updateTotalPrice() {
 
     totalAmount = totalAmount.toFixed(2);
     document.getElementById("totalPrice").innerText = "€" + totalAmount;
+    localStorage.setItem("TOTAL", totalAmount);
 }
 
 /**
@@ -154,6 +156,7 @@ function confirmOrder() {
             orderConfirmed();
             localStorage.removeItem("ITEM");
             localStorage.removeItem("PRICE");
+            localStorage.removeItem("AMOUNT");
             orderedItems = [];
             updateOrder();
             updateNotification();
@@ -170,7 +173,8 @@ function confirmOrder() {
  */
 function orderConfirmed() {
     generateOrderNumber();
-
+    let d = new Date();
+    let totalVal = JSON.parse(localStorage.getItem("TOTAL"));
     let value = [];
 
     for (let i = 0; i < orderedItems.length; i++) {
@@ -183,8 +187,11 @@ function orderConfirmed() {
     // create new object
     let receipt = {
         id: count,
+        date: d.toString(),
         items: value,
+        total: totalVal,
         username: currentUser
+
     };
 
     userOrders.push(receipt)
