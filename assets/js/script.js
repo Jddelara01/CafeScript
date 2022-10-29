@@ -124,31 +124,3 @@ function notOrdered(val) {
   }
   return true;
 }
-
-/*
-let userDetails = {
-  name: "Jubril",
-  email: "jubril@gmail.com"
-}
-
-
-let orders = [
-  {
-    id: 1,
-    title: "orange",
-    qty: 2,
-    price: 20,
-    name: "jubril"
-  },
-  {
-    id: 2,
-    title: "apples",
-    qty: 2,
-    price: 20,
-    name: "sam"
-  }
-
-]
-
-let ordersByUser  = orders.filter(order => order.name === userDetails.name)
-*/

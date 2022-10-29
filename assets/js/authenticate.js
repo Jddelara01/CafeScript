@@ -36,6 +36,6 @@ function logOutUser() {
     let logOutBtn = document.getElementById("logOut");
     logOutBtn.addEventListener("click", function (event) {
         localStorage.removeItem("CURRENT");
-        location.reload();
+        window.location.href = "index.html"
     })
 }
