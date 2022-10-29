@@ -12,12 +12,14 @@ function showOrder() {
     if (currentUser !== null) {
         for (let i = 0; i < userOrders.length; i++) {
             if (userOrders[i].username === currentUser) {
+                let displayId = (userOrders[i].id * 1) + 1; // convert string to a number
                 displayOrder.innerHTML += `
-                <div>ID: ${userOrders[i].id + 1}</div>
+                <div class="receiptContent">ID: ${displayId}</div>
             `;
                 for (let j = 0; j < userOrders[i].items.length; j++) {
+                    let idDiv = document.getElementsByClassName("receiptContent")[i];
                     console.log("Check " + j);
-                    displayOrder.innerHTML += `
+                    idDiv.innerHTML += `
                     <div class="userOrder">${userOrders[i].items[j].item} <span>${userOrders[i].items[j].price}</span></div> 
                 `;
                 }
