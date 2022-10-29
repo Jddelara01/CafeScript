@@ -54,8 +54,10 @@ function removeOrder() {
             if (delItem === reverse[i]) {
                 orderedItems.splice(i, 1);
                 orderedItemsPrice.splice(i, 1);
+                orderedItemsAmount.splice(i, 1);
                 localStorage.setItem("ITEM", JSON.stringify(orderedItems));
                 localStorage.setItem("PRICE", JSON.stringify(orderedItemsPrice));
+                localStorage.setItem("AMOUNT", JSON.stringify(orderedItemsAmount));
                 location.reload();
             }
 
@@ -71,6 +73,7 @@ function removeOrder() {
  */
 function updateAmount() {
     let amountElements = document.getElementsByClassName("orderAmount");
+    //let reverseArr = orderedItemsAmount.reverse(); 
     for (let i = 0; i < amountElements.length; i++) {
         let amountInput = amountElements[i];
 
@@ -79,6 +82,10 @@ function updateAmount() {
             if (isNaN(changedInput.value) || changedInput.value <= 0) {
                 changedInput.value = 1;
                 console.log(changedInput.value);
+            } else {
+                console.log(reverseArr);
+                //orderedItemsAmount[i] = changedInput.value;
+                //localStorage.setItem("AMOUNT", JSON.stringify(orderedItemsAmount));
             }
             updateTotalPrice();
         })
@@ -120,6 +127,7 @@ function selectBtnOption() {
                 console.log(select.innerHTML);
                 localStorage.removeItem("ITEM");
                 localStorage.removeItem("PRICE");
+                localStorage.removeItem("AMOUNT");
                 orderedItems = [];
                 updateOrder();
                 updateNotification();

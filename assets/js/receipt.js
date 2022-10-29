@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed for receipt.js');
     showOrder();
+    console.log(typeof orderedItemsAmount);
 });
 
 
@@ -14,11 +15,10 @@ function showOrder() {
             if (userOrders[i].username === currentUser) {
                 let displayId = (userOrders[i].id * 1) + 1; // convert string to a number
                 displayOrder.innerHTML += `
-                <div class="receiptContent">ID: ${displayId}</div>
+                <div class="receiptContent">Receipt #: ${displayId}</div>
             `;
                 for (let j = 0; j < userOrders[i].items.length; j++) {
                     let idDiv = document.getElementsByClassName("receiptContent")[i];
-                    console.log("Check " + j);
                     idDiv.innerHTML += `
                     <div class="userOrder">${userOrders[i].items[j].item} <span>${userOrders[i].items[j].price}</span></div> 
                 `;

@@ -94,6 +94,7 @@ function addOrder() {
       let clickedItem = event.target;
       let itemName = clickedItem.getAttribute("dataType");
       let itemPrice = parseFloat(clickedItem.getElementsByClassName("price")[0].innerHTML.replace("€", "")); // convert the price into a number
+      let itemAmt = 1;
 
       itemPrice = itemPrice.toFixed(2);
       console.log(itemName, itemPrice);
@@ -104,6 +105,8 @@ function addOrder() {
         localStorage.setItem("ITEM", JSON.stringify(orderedItems));
         orderedItemsPrice.push(itemPrice);
         localStorage.setItem("PRICE", JSON.stringify(orderedItemsPrice));
+        orderedItemsAmount.push(itemAmt);
+        localStorage.setItem("AMOUNT", JSON.stringify(orderedItemsAmount));
         updateNotification();
       } else {
         alert("You have already ordered " + itemName + ". You can add more in the 'Your Order' page.")

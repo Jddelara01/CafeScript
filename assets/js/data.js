@@ -14,27 +14,10 @@ const menus = {
   }
 };
 
-// function showOrder() {
-//   let parsedObj = JSON.parse(localStorage.getItem("receipt"));
-//   console.log(parsedObj.items[1].item);
-
-//   if (parsedObj.username === currentUser) {
-//     let displayOrder = document.getElementById("userOrdersWrapper");
-//     displayOrder.innerHTML += `
-//        <div>ID: ${parsedObj.id}</div>
-//        `;
-//     for (let i = 0; i < parsedObj.items.length; i++) {
-//       console.log("Check " + i);
-//       displayOrder.innerHTML += `
-//     <div class="userOrder">${parsedObj.items[i].item} <span>${parsedObj.items[i].price}</span></div> 
-//     `;
-//     }
-//   }
-// }
-
 // ordered items array to be stored in localStorage and be used to rendered ordered items in Your Order page
 let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || []; // convert string into an array or set as an empty array
-let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];;
+let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];
+let orderedItemsAmount = JSON.parse(localStorage.getItem("AMOUNT")) || [];
 
 
 // user details array to be stored in localStorage  and be used to hold registired users details
