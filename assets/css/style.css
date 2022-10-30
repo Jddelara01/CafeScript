@@ -1,10 +1,9 @@
 body {
-    /*background-color: #00539CFF;*/
-    /*color: #EEA47FFF */
     background-image: url(../images/coffeeshop_bg.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
+    min-height: 100vh;
     box-sizing: border-box;
 }
 
@@ -65,12 +64,6 @@ a {
 #logOut {
     background-color: rgba(238, 164, 127, 0.8);
 }
-
-/*
-#loginPage {
-    display: none; 
-}
-*/
 
 #logOut {
     font-size: 2rem;
@@ -314,4 +307,169 @@ a {
     text-align: center;
     margin-bottom: 25px;
     border-bottom: 2px solid;
+}
+
+footer {
+    text-align: center;
+    width: 100%;
+    background-color: rgba(238, 164, 127, 0.8);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    margin-top: 1rem;
+}
+
+
+/* Media queries */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    #navigationBar {
+        margin-top: 1rem;
+        font-size: 1rem;
+        margin-left: 0;
+    }
+    
+    #navigationBar ul {
+        flex-wrap: wrap;
+        justify-items: left;
+        justify-content: space-between;
+    }
+
+    #navigationBar li {
+        margin: 0;
+        letter-spacing: 0;
+    }
+
+    #logOut {
+        font-size: 1rem;
+    }
+
+    #landingPage {
+        width: 100%;
+    }
+
+    .landingPageContent {
+        font-size: 1rem;
+        margin: 1rem auto;
+        padding: 1rem;
+    }
+
+    #menuContainer {
+        width: 100%;
+    }
+
+    .tablink {
+        width: 33%;
+        font-size: 1.1rem;
+    }
+
+    .menuTab {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .btnOptions {
+        width: 80%;
+        font-size: 0.8rem;
+    }
+
+    #orderContainer {
+        width: 100%;
+    }
+
+    #orders {
+        width: 100%;
+        font-size: 0.8rem;
+    }
+
+    #totalPriceContainer {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 1.2rem;
+    }
+
+    #userOrdersWrapper {
+        width: 90%;
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+/* Medium devices (tablets, 1023px and down) */
+@media only screen and (max-width: 1023px) {    
+    #navigationBar {
+        margin-top: 2rem;
+        font-size: 1.25rem;
+        margin-left: 0;
+    }
+
+    #navigationBar ul {
+        flex-wrap: wrap;
+        justify-items: center;
+        justify-content: space-around;
+    }
+
+    #navigationBar li {
+        margin: 0;
+        letter-spacing: 0;
+    }
+
+    #logOut {
+        font-size: 1rem;
+    }
+
+    #landingPage {
+        width: 80%;
+    }
+    
+    .landingPageContent {
+        font-size: 1.5rem;
+        margin: 3rem auto;
+        padding: 1rem;
+    }
+
+    #menuContainer {
+        width: 80%;
+    }
+
+    .tablink {
+        width: 33%;
+        font-size: 1.75rem;
+    }
+
+    .menuTab {
+        width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .btnOptions {
+        width: 75%;
+        font-size: 1rem;
+    }
+
+    #orderContainer {
+        width: 100%;
+    }
+
+    #orders {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    #totalPriceContainer {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 1.25rem;
+    }
+
+    #userOrdersWrapper {
+        width: 90%;
+        font-size: 1rem;
+        text-align: center;
+    }
 }
