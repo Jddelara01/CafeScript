@@ -19,7 +19,7 @@ function updateOrder() {
               <td class="orderItem">${addedItem[i].item}</td>
               <td class="orderPrice" dataType="${addedItem[i].price}">€${addedItem[i].price}</td>
               <td>
-                  <input class="orderAmount" type="number" value="${addedItem[i].amount}">
+                  <input class="orderAmount" type="number" dataType="${addedItem[i].item}" value="${addedItem[i].amount}">
                   <button class="removeOrderBtn" dataType="${addedItem[i].item}"><i class="fa-solid fa-trash"></i></button>
               </td>
           </tr>`;
@@ -74,18 +74,24 @@ function removeOrder() {
 function updateAmount() {
     let amountElements = document.getElementsByClassName("orderAmount");
 
-    for (let i = amountElements.length - 1; i >= 0 ; i--) {
+    for (let i = 0; i < amountElements.length; i++) {
         let amountInput = amountElements[i];
+        let updateAmt = amountInput.getAttribute("datatype");
 
         amountInput.addEventListener("change", function (event) {
             let changedInput = event.target;
+            let findAmt = addedItem.find(order => order.item === updateAmt);
+            let index = addedItem.indexOf(findAmt);
             if (isNaN(changedInput.value) || changedInput.value <= 0) {
                 changedInput.value = 1;
                 console.log(changedInput.value);
             } else {
-                orderedItemsAmount[i] = changedInput.value;
-                console.log(orderedItemsAmount[i]);
-                localStorage.setItem("AMOUNT", JSON.stringify(orderedItemsAmount));
+                if (findAmt) {
+                    addedItem[index].amount = changedInput.value;
+                    console.log(addedItem[i].amount);
+                    localStorage.setItem("ORDER", JSON.stringify(addedItem));
+                }
+                console.log("CHECK Updated amount");
             }
             updateTotalPrice();
         })
@@ -126,10 +132,8 @@ function selectBtnOption() {
                 confirmOrder();
             } else if (select.innerHTML === "CANCEL") {
                 console.log(select.innerHTML);
-                localStorage.removeItem("ITEM");
-                localStorage.removeItem("PRICE");
-                localStorage.removeItem("AMOUNT");
-                orderedItems = [];
+                localStorage.removeItem("ORDER");
+                addedItem = [];
                 updateOrder();
                 updateNotification();
             } else {
@@ -153,10 +157,8 @@ function confirmOrder() {
     } else {
         if (confirm("Please confirm your order!")) {
             orderConfirmed();
-            localStorage.removeItem("ITEM");
-            localStorage.removeItem("PRICE");
-            localStorage.removeItem("AMOUNT");
-            orderedItems = [];
+            localStorage.removeItem("ORDER");
+            addedItem = [];
             updateOrder();
             updateNotification();
             window.location.href = "userOrders.html"
@@ -176,10 +178,10 @@ function orderConfirmed() {
     let totalVal = JSON.parse(localStorage.getItem("TOTAL"));
     let value = [];
 
-    for (let i = 0; i < orderedItems.length; i++) {
+    for (let i = 0; i < addedItem.length; i++) {
         value.push({
-            "item": orderedItems[i],
-            "price": orderedItemsPrice[i]
+            "item": addedItem[i].item,
+            "price": addedItem[i].price
         });
     }
 

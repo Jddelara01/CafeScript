@@ -96,7 +96,7 @@ function addOrder() {
       let itemPrice = parseFloat(clickedItem.getElementsByClassName("price")[0].innerHTML.replace("€", "")); // convert the price into a number
       let itemAmt = 1;
       itemPrice = itemPrice.toFixed(2);
-      
+
       let order = {
         item: itemName,
         price: itemPrice,
@@ -123,8 +123,8 @@ function addOrder() {
  * Check if the order is already ordered
  */
 function notOrdered(val) {
-  for (let i = 0; i < orderedItems.length; i++) {
-    if (val === orderedItems[i]) {
+  for (let i = 0; i < addedItem.length; i++) {
+    if (val === addedItem[i].item) {
       return false;
     }
   }
