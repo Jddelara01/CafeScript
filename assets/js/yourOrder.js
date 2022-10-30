@@ -128,7 +128,7 @@ function selectBtnOption() {
         let selectedBtn = btnOptions[i];
         selectedBtn.addEventListener("click", function (event) {
             let select = event.target;
-            if (select.innerHTML === "ORDER" && orderedItems.length > 0) {
+            if (select.innerHTML === "ORDER" && addedItem.length > 0) {
                 confirmOrder();
             } else if (select.innerHTML === "CANCEL") {
                 console.log(select.innerHTML);
@@ -181,7 +181,8 @@ function orderConfirmed() {
     for (let i = 0; i < addedItem.length; i++) {
         value.push({
             "item": addedItem[i].item,
-            "price": addedItem[i].price
+            "price": addedItem[i].price,
+            "amount": addedItem[i].amount
         });
     }
 
