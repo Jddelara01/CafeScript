@@ -189,7 +189,7 @@ function orderConfirmed() {
     // create new object
     let receipt = {
         id: count,
-        date: d.toString(),
+        date: d.toLocaleString(),
         items: value,
         total: totalVal,
         username: currentUser
