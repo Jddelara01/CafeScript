@@ -396,6 +396,24 @@ footer {
         font-size: 1rem;
         text-align: center;
     }
+
+    /* Login page */
+    #loginPageWrapper {
+        width: 100%;
+        font-size: 1.25rem;
+    }
+    
+    #loginMsg {
+        font-size: 0.8rem;
+    }
+    
+    #login-form {
+        margin-top: 1rem;
+    }
+
+    .login-form-field {
+        font-size: 1.5rem;
+    }
 }
 
 /* Medium devices (tablets, 1023px and down) */
