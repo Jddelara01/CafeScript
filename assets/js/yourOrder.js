@@ -12,15 +12,15 @@ document.addEventListener('DOMContentLoaded', (event) => {
  */
 function updateOrder() {
     let yourOrder = document.getElementsByClassName("tableHeadings")[0];
-    if (orderedItems.length > 0) {
-        for (let i = 0; i < orderedItems.length; i++) {
+    if (addedItem.length > 0) {
+        for (let i = 0; i < addedItem.length; i++) {
             const newTR = `
           <tr class="tableRows">
-              <td class="orderItem">${orderedItems[i]}</td>
-              <td class="orderPrice" dataType="${orderedItemsPrice[i]}">€${orderedItemsPrice[i]}</td>
+              <td class="orderItem">${addedItem[i].item}</td>
+              <td class="orderPrice" dataType="${addedItem[i].price}">€${addedItem[i].price}</td>
               <td>
-                  <input class="orderAmount" type="number" value="1">
-                  <button class="removeOrderBtn" dataType="${orderedItems[i]}"><i class="fa-solid fa-trash"></i></button>
+                  <input class="orderAmount" type="number" value="${addedItem[i].amount}">
+                  <button class="removeOrderBtn" dataType="${addedItem[i].item}"><i class="fa-solid fa-trash"></i></button>
               </td>
           </tr>`;
             yourOrder.insertAdjacentHTML("afterend", newTR);
@@ -42,23 +42,22 @@ function updateOrder() {
  */
 function removeOrder() {
     let btnRemove = document.getElementsByClassName("removeOrderBtn");
-    let reverse = orderedItems.reverse(); // need to reverse array order to match the index of the for loop below to get the dataType of each clicked button
 
     for (let i = 0; i < btnRemove.length; i++) {
         let btn = btnRemove[i];
         let delItem = btn.getAttribute("dataType");
         btn.addEventListener("click", function (event) {
             let clickedBtn = event.target;
+            let findItem = addedItem.find(order => order.item === delItem);
+            let index = addedItem.indexOf(findItem);
+
             clickedBtn.parentElement.parentElement.parentElement.remove();
 
             // delete the specific item from the local storage
-            if (delItem === reverse[i]) {
-                orderedItems.splice(i, 1);
-                orderedItemsPrice.splice(i, 1);
-                orderedItemsAmount.splice(i, 1);
-                localStorage.setItem("ITEM", JSON.stringify(orderedItems));
-                localStorage.setItem("PRICE", JSON.stringify(orderedItemsPrice));
-                localStorage.setItem("AMOUNT", JSON.stringify(orderedItemsAmount));
+            if (findItem) {
+                addedItem.splice(index, 1);
+                localStorage.setItem("ORDER", JSON.stringify(addedItem));
+
                 location.reload();
             }
 

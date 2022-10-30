@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function updateNotification() {
     let orderNotification = document.getElementById("notification");
     let count = 0;
-    for (let i = 0; i < orderedItems.length; i++) {
+    for (let i = 0; i < addedItem.length; i++) {
         count += 1;
     }
 

@@ -19,6 +19,7 @@ let orderedItems = JSON.parse(localStorage.getItem("ITEM")) || []; // convert st
 let orderedItemsPrice = JSON.parse(localStorage.getItem("PRICE")) || [];
 let orderedItemsAmount = JSON.parse(localStorage.getItem("AMOUNT")) || [];
 let totalOrderedPrice = JSON.parse(localStorage.getItem("TOTAL"));
+let addedItem = JSON.parse(localStorage.getItem("ORDER")) || [];
 
 
 // user details array to be stored in localStorage  and be used to hold registired users details
