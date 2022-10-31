@@ -9,32 +9,27 @@ document.addEventListener('DOMContentLoaded', (event) => {
  */
 function showOrder() {
     let displayOrder = document.getElementById("userOrdersWrapper");
-    if (currentUser !== null) {
-        for (let i = 0; i < userOrders.length; i++) {
-            console.log(userOrders[i].username);
-            if (userOrders[i].username === currentUser) {
-                let displayId = (userOrders[i].id * 1) + 1; // convert string to a number
-                displayOrder.innerHTML += `
-                <div class="receiptContent">Receipt #: ${displayId} <br> ${userOrders[i].date} 
-                <br> TOTAL: ${userOrders[i].total}
+    const receipts = JSON.parse(localStorage.getItem("RECEIPT"));
+    const username = localStorage.getItem("CURRENT");
+    const myItem = receipts.filter(receipt => receipt.username.toLowerCase() === username.toLowerCase());
+
+    for (let i = 0; i < myItem.length; i++) {
+        console.log(myItem[i].id, "<==id number");
+        let displayId = (myItem[i].id * 1) + 1;
+        displayOrder.innerHTML += `
+            <div class="receiptContent">Receipt #: ${displayId} <br> ${myItem[i].date} 
+                <br> TOTAL: ${myItem[i].total}
+            </div>
+        `;
+        for (let j = 0; j < myItem[i].items.length; j++) {
+            let idDiv = document.getElementsByClassName("receiptContent")[i];
+            idDiv.innerHTML += `  
+                <div class="userOrder">
+                    <p>
+                    ${myItem[i].items[j].item} - ${myItem[i].items[j].price} x ${myItem[i].items[j].amount}
+                    </p>
                 </div>
             `;
-                for (let j = 0; j < userOrders[i].items.length; j++) {
-                    let idDiv = document.getElementsByClassName("receiptContent")[i];
-                    //console.log(idDiv);
-                    idDiv.innerHTML += `  
-                    <div class="userOrder">
-                        <p>
-                        ${userOrders[i].items[j].item} - ${userOrders[i].items[j].price} x ${userOrders[i].items[j].amount}
-                        </p>
-                    </div>
-                `;
-                }
-            } else {
-                console.log("This order is not for the user");
-            }
         }
-    } else {
-        console.log("This order is not for the user");
     }
 }
