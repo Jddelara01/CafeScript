@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed for login page');
     loginUser();
+    goSignUp();
 });
 
 /**
@@ -9,6 +10,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
 function loginUser() {
     let btnSelected = document.getElementById("loginButton");
     btnSelected.addEventListener("click", login);
+}
+
+function goSignUp() {
+    let select = document.getElementById("signUpBtn");
+    select.addEventListener("click", function () {
+        window.location.href = "signup.html"
+    })
 }
 
 /**

@@ -161,7 +161,7 @@ function confirmOrder() {
             addedItem = [];
             updateOrder();
             updateNotification();
-            window.location.href = "userOrders.html"
+            window.location.href = "userOrders.html";
             showOrder();
         } else {
             location.reload();
