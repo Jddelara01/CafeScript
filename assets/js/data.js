@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // Creating the menu options for each specific menu
 const menus = {
   coffee: {

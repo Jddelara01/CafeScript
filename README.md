@@ -103,3 +103,6 @@ In this section, I will be going through the different parts of the website and 
             - Function with the largest signature take 1 arguments, while the median is 0.5.
             - Largest function has 13 statements in it, while the median is 2.5.
             - The most complex function has a cyclomatic complexity value of 2 while the median is 1.
+        - data.js
+            - This is where I store my global variables, no functions are present here.
+        
