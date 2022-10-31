@@ -1,10 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background-image: url(../images/coffeeshop_bg.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
     min-height: 100vh;
-    box-sizing: border-box;
 }
 
 button {
@@ -86,6 +90,7 @@ a {
     background-color: rgba(0, 83, 156, 0.3);
     text-align: center;
     border-radius: 15px;
+    margin-top: 5rem;
 }
 
 .landingPageContent {
@@ -100,12 +105,16 @@ a {
     font-weight: 1000;
 }
 
+.landingPageContent p {
+    margin-top: 1rem;
+}
+
 .landingPageBtn {
     color: #000;
     font-size: 2rem;
     padding: .50rem;
     border-radius: 10px;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     background-color: #EEA47FFF;
 }
 
@@ -114,7 +123,7 @@ a {
     display: flex;
     flex-direction: row;
     width: 60%;
-    margin: auto auto;
+    margin: 2rem auto;
     justify-content: space-around;
     font-family: "lato", sans-serif;
 }
@@ -153,6 +162,7 @@ a {
 .btnOptions {
     width: 100%;
     font-size: 1.5rem;
+    padding: 18px;
     margin: 1rem auto;
     display: flex;
     flex-direction: row;
@@ -165,7 +175,8 @@ a {
 /* Your order page */
 #orderContainer {
     width: 50%;
-    margin: auto auto;
+    margin: 2rem auto;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -175,7 +186,7 @@ a {
 
 #orders {
     width: 100%;
-    margin: auto auto;
+    margin: 2rem auto;
     font-size: 1.5rem;
     text-align: center;
     border-radius: 15px;
@@ -210,7 +221,7 @@ a {
 }
 
 #totalPriceContainer {
-    margin-top: 1.5rem;
+    margin: 1.5rem;
     font-size: 2rem;
     text-decoration: underline;
 }
@@ -223,7 +234,7 @@ a {
     flex-direction: column;
     align-items: center;
     width: 50%;
-    margin: auto auto;
+    margin: 2rem auto;
     background-color: rgba(0, 83, 156, 0.3);
     font-size: 1.25rem;
     font-family: "lato", sans-serif;
@@ -268,7 +279,7 @@ a {
 /* Sign up page */
 #signUpWrapper {
     width: 80%;
-    margin: auto auto;
+    margin: 1.5rem auto;
     font-family: "lato", sans-serif;
 }
 
@@ -298,14 +309,15 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: auto auto;
+    margin: 2rem auto;
     font-family: "lato", sans-serif;
     font-size: 1.5rem;
 }
 
 .receiptContent {
     text-align: center;
-    margin-bottom: 25px;
+    margin: 25px;
+    padding: 10px;
     border-bottom: 2px solid;
 }
 
@@ -314,10 +326,11 @@ footer {
     width: 100%;
     background-color: rgba(238, 164, 127, 0.8);
     position: fixed;
+    padding: 10px;
+    margin-top: 1rem;
     bottom: 0;
     left: 0;
     z-index: 1;
-    margin-top: 1rem;
 }
 
 
@@ -361,12 +374,12 @@ footer {
 
     .tablink {
         width: 33%;
-        font-size: 1.1rem;
+        font-size: 0.6rem;
     }
 
     .menuTab {
         width: 100%;
-        padding: 0 1rem;
+        padding: 10px;
     }
     
     .btnOptions {
@@ -414,6 +427,10 @@ footer {
     .login-form-field {
         font-size: 1.5rem;
     }
+
+    footer {
+        font-size: 0.8rem;
+    }
 }
 
 /* Medium devices (tablets, 1023px and down) */
@@ -455,7 +472,7 @@ footer {
 
     .tablink {
         width: 33%;
-        font-size: 1.75rem;
+        font-size: 1.10rem;
     }
 
     .menuTab {
