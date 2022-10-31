@@ -137,3 +137,37 @@ In this section, I will be going through the different parts of the website and 
             - Largest function has 13 statements in it, while the median is 6.
             - The most complex function has a cyclomatic complexity value of 4 while the median is 2.
             - Three warnings (Functions declared within loops referencing an outer scoped variable may lead to confusing semantics) but should be okay as I have to use a global variable.
+
+### Known Issues
+
+- Delete button functionality
+    - When user clicked on the delete button to remove a specific in "Your Order" page, it sometimes delete all the items in the list. However, the data in the localStorage has not been deleted. So it is more likely just a UI issue.
+
+- Clicking on items in "Menu" page
+    - Sometimes when user click on an item that they would like to order, the item does not get added into the localStorage or in the UI. User has to click the item again to make it work.
+
+- Total price doesn't get updated
+    - When a user changes the amount for an item in the "Your Order" page, the total price does not get updated. A user has to press enter first to update it which should not be the case. Total price should get updated straigh away once a amount is changed.
+
+### Resolved Issues
+- Delete button functionality
+    - I noticed the the UI gets update correctly when I just refresh the page. So I added location.reload() in the updateOrder function, so that page get refreshed everytime a user clicks on the delete button. After this, I have not seen the issue occur again.
+
+- Total price doesn't get updated
+    - Issue was only noticed when I was on inspect mode. After closing inspect mode and refreshing the page, issue did not occur again.
+
+### Unresolved Issues
+- Clicking on items in "Menu" page
+    - I don't see any issues in my code and the issue only occurs very intermittently. It seems that it happens when I don't fully clicked on the mouse or if I am clicking too quickly.
+
+### Page Design in Different Devices/Browser Sizes
+As the website is designed for desktop size device/browser, the images the feature section should be the same. So I will only include tablet device size / mobile device size in this section.
+
+| Features             | Tablet (1023px and below) |  Mobile (600px and below) |
+| -------------------- |:------------------------ | :------------------------ |
+| Navigation Bar       | - All navigation bar links font size will adjust accordingly to fit screen size. | - All navigation bar links font size will adjust accordingly to fit screen size. |                                          
+| Home Page            | - Home page content will adjust accordingly. | - Home page content will adjust accordingly.|
+| Menu Page            | - The items tab and item buttons sizes will be updated accordingly. | - - The items tab and item buttons sizes will be updated accordingly. |
+| Your Order Page      | - Font size and other elements will be update accordingly. | - Font size and other elements will be update accordingly. |
+| Login Page           | - Login page content will be adjusted accordinly. | - Login page content will be adjusted accordinly. |
+| Footer               | - Font size will become smaller | - N/A |
