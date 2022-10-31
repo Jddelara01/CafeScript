@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     updateOrder();
@@ -63,7 +65,7 @@ function removeOrder() {
 
             updateTotalPrice();
             updateNotification();
-        })
+        });
     }
 }
 
@@ -94,7 +96,7 @@ function updateAmount() {
                 console.log("CHECK Updated amount");
             }
             updateTotalPrice();
-        })
+        });
     }
 }
 
@@ -137,9 +139,9 @@ function selectBtnOption() {
                 updateOrder();
                 updateNotification();
             } else {
-                alert("You have not ordered anything!")
-            };
-        })
+                alert("You have not ordered anything!");
+            }
+        });
     }
 }
 
@@ -150,7 +152,7 @@ function confirmOrder() {
     //let msg;
     if (!currentUser) {
         if (confirm("You need to first login to proceed with your order")) {
-            window.location.href = "login.html"
+            window.location.href = "login.html";
         } else {
             location.reload();
         }
@@ -196,7 +198,7 @@ function orderConfirmed() {
 
     };
 
-    userOrders.push(receipt)
+    userOrders.push(receipt);
     let jsonObj = JSON.stringify(userOrders);
     localStorage.setItem("RECEIPT", jsonObj);
 }
@@ -206,7 +208,7 @@ function orderConfirmed() {
  */
 function generateOrderNumber() {
     if (!localStorage.COUNT) {
-        localStorage.setItem("COUNT", "1")
+        localStorage.setItem("COUNT", "1");
     } else {
         let orderNum = Number(localStorage.getItem("COUNT"));
         localStorage.setItem("COUNT", ++orderNum);
