@@ -87,7 +87,6 @@ a {
     font-weight: bold;
     margin: auto auto;
     width: 50%;
-    background-color: rgba(0, 83, 156, 0.3);
     text-align: center;
     border-radius: 15px;
     margin-top: 5rem;
@@ -97,6 +96,8 @@ a {
     font-size: 2rem;
     margin: 1rem auto;
     padding: 1rem;
+    background-color: rgba(0, 83, 156, 0.7);
+    border-radius: 10px;
 }
 
 .landingPageContent h1 {
@@ -110,12 +111,27 @@ a {
 }
 
 .landingPageBtn {
-    color: #000;
-    font-size: 2rem;
-    padding: .50rem;
-    border-radius: 10px;
-    margin: 2rem 0;
-    background-color: #EEA47FFF;
+    background-color: rgba(238, 164, 127, 0.8);
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.landingPageBtn:hover {
+    background-color: #fff;
+}
+
+.landingPageBtn:active {
+    box-shadow: #422800 2px 2px 0 0;
+    transform: translate(2px, 2px);
 }
 
 /* Menu Page */

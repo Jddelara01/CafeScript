@@ -86,3 +86,9 @@ In this section, I will be going through the different parts of the website and 
 
 ----
 
+## Testing
+
+### Validator Testing
+
+- _HTML_
+    
