@@ -359,7 +359,7 @@ footer {
         font-size: 1rem;
         margin-left: 0;
     }
-    
+
     #navigationBar ul {
         flex-wrap: wrap;
         justify-items: left;
@@ -398,7 +398,7 @@ footer {
         width: 100%;
         padding: 10px;
     }
-    
+
     .btnOptions {
         width: 80%;
         font-size: 0.8rem;
@@ -432,11 +432,11 @@ footer {
         width: 100%;
         font-size: 1.25rem;
     }
-    
+
     #loginMsg {
         font-size: 0.8rem;
     }
-    
+
     #login-form {
         margin-top: 1rem;
     }
@@ -451,7 +451,7 @@ footer {
 }
 
 /* Medium devices (tablets, 1023px and down) */
-@media only screen and (max-width: 1023px) {    
+@media only screen and (max-width: 1023px) {
     #navigationBar {
         margin-top: 2rem;
         font-size: 1.25rem;
@@ -476,7 +476,7 @@ footer {
     #landingPage {
         width: 80%;
     }
-    
+
     .landingPageContent {
         font-size: 1.5rem;
         margin: 3rem auto;
@@ -496,7 +496,7 @@ footer {
         width: 100%;
         padding: 0 1rem;
     }
-    
+
     .btnOptions {
         width: 75%;
         font-size: 1rem;

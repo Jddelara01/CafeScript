@@ -91,4 +91,15 @@ In this section, I will be going through the different parts of the website and 
 ### Validator Testing
 
 - _HTML_
-    
+    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fjddelara01.github.io%2Fcafe-script%2F)
+
+- _CSS_
+    - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator)
+
+- _JavaScript_
+    - No errors found in when passing through the official [Jshint validator](https://jshint.com/)
+        - authenticate.js
+            - There are 4 functions in this file.
+            - Function with the largest signature take 1 arguments, while the median is 0.5.
+            - Largest function has 13 statements in it, while the median is 2.5.
+            - The most complex function has a cyclomatic complexity value of 2 while the median is 1.

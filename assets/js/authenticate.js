@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 // if a user is logged in in the system
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -14,7 +15,7 @@ function authenticated() {
     let displayName = document.getElementById("orderHistory");
     let displayLogoutBtn = document.getElementById("logOut");
     let hideLink = document.getElementById("loginPage");
-    let displayUserName = document.getElementById("displayUser")
+    let displayUserName = document.getElementById("displayUser");
     console.log(currentUser);
     if(currentUser) {
         displayUserName.innerHTML = currentUser;
@@ -36,6 +37,6 @@ function logOutUser() {
     let logOutBtn = document.getElementById("logOut");
     logOutBtn.addEventListener("click", function (event) {
         localStorage.removeItem("CURRENT");
-        window.location.href = "index.html"
-    })
+        window.location.href = "index.html";
+    });
 }
