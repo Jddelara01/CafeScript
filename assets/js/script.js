@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 // Display the element with id "defaultTab" when opening the menu page
 document.getElementById("defaultTab").click();
 
@@ -101,9 +103,7 @@ function addOrder() {
         item: itemName,
         price: itemPrice,
         amount: itemAmt
-      }
-
-      console.log(itemName, itemPrice);
+      };
 
       // Add ordered item into the local storage array
       if (notOrdered(itemName)) {
@@ -112,10 +112,10 @@ function addOrder() {
 
         updateNotification();
       } else {
-        alert("You have already ordered " + itemName + ". You can add more in the 'Your Order' page.")
+        alert("You have already ordered " + itemName + ". You can add more in the 'Your Order' page.");
       }
 
-    })
+    });
   }
 }
 

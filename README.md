@@ -105,4 +105,19 @@ In this section, I will be going through the different parts of the website and 
             - The most complex function has a cyclomatic complexity value of 2 while the median is 1.
         - data.js
             - This is where I store my global variables, no functions are present here.
-        
+        - orderNotification.js
+            - There are 2 functions in this file.
+            - Function with the largest signature take 1 arguments, while the median is 0.5.
+            - Largest function has 6 statements in it, while the median is 4.
+            - The most complex function has a cyclomatic complexity value of 2 while the median is 1.5. 
+        - receipt.js
+            - There are 3 functions in this file.
+            - Function with the largest signature take 1 arguments, while the median is 1.
+            - Largest function has 11 statements in it, while the median is 2.
+            - The most complex function has a cyclomatic complexity value of 3 while the median is 1.
+        - script.js
+            - There are 5 functions in this file.
+            - Function with the largest signature take 2 arguments, while the median is 1.
+            - Largest function has 24 statements in it, while the median is 12.
+            - The most complex function has a cyclomatic complexity value of 7 while the median is 3.
+            - One warning, but it should be okay as I have to use a global variable.

@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed for receipt.js');
     showOrder();
@@ -17,8 +19,8 @@ function showOrder() {
         console.log(myItem[i].id, "<==id number");
         let displayId = (myItem[i].id * 1) + 1;
         displayOrder.innerHTML += `
-            <div class="receiptContent">Receipt #: ${displayId} <br> ${myItem[i].date} 
-                <br> TOTAL: ${myItem[i].total}
+            <div class="receiptContent">
+                Receipt #: ${displayId} <br> ${myItem[i].date} <br> TOTAL: ${myItem[i].total}
             </div>
         `;
         for (let j = 0; j < myItem[i].items.length; j++) {
