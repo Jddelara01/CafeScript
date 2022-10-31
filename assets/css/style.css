@@ -312,11 +312,12 @@ a {
     margin: 2rem auto;
     font-family: "lato", sans-serif;
     font-size: 1.5rem;
+    background-color: rgba(238, 164, 127, 0.8);
 }
 
 .receiptContent {
     text-align: center;
-    margin: 25px;
+    margin: 20px;
     padding: 10px;
     border-bottom: 2px solid;
 }
