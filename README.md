@@ -3,6 +3,8 @@
 
 CafeScript is a fully responsive website that can be used by customers of CafeScript cafe to order their coffee/tea/pastry online and user can then just collect their order in the CafeScript shop. The website will help users/customer of CafeScipt cafe avoid queuing in the cafe and speed up the process of ordering coffee/tea/pastry from CafeScript cafe.
 
+----
+
 ## Features
 
 In this section, I will be going through the different parts of the website and I will provide descriptions for each feature and what the feature do.
@@ -50,3 +52,37 @@ In this section, I will be going through the different parts of the website and 
     - The receipt contains the receipt number, date and time on when the ordered was made, total price of the order, items, price for each item and amount for each item.
 
 ![User Page / Receipt Page](/assets/images/receipt.jpg)
+
+- _Login Page_
+    - User can log in into the system through the log in page.
+    - Log in page will ask for customer's email and password, to login. User has to input their correct email and password they used when registering.
+    - If a user is not yet logged in, the Login page can be access by a user in the "LOG IN" tab from navigation bar or from the alert that pops up when a user Orders.
+    - The log in page won't be available if the customer has already logged in.
+
+![Login Page](/assets/images/loginpage.jpg)
+
+- _Sign Up Page_
+    - This is the page where a user can register and once they have completed their registration, user can then login to complete their order.
+    - Sign up page will ask user for their name, email and password and user must input a valid name, email and password.
+    - A user can only access this page by clicking the "Sign Up" button in the Login page.
+
+![Sign Up Page](/assets/images/signuppage.jpg) 
+
+- _Logout Button_
+    - A user can click the logout button from the navigation bar to logout.
+    - Logout button is only available when a user is logged in.
+
+![Logout Button](/assets/images/logout.jpg)
+
+- _Footer_
+    - Footer is available in all pages and it is at the bottom of each page.
+    - A user can find the CafeScript contact details in the footer.
+
+![Footer](/assets/images/footer.jpg)
+
+### Future Development Plans
+    - To add a payment functionality. This functionality will then be mandatory for user to complete his/her order.
+    - To create a functionality that will store a receipt in a database and send a receipt to CafeScript cafe everytime a user completes an order so that employers of CafeScript can see the order of each customer.
+
+----
+
