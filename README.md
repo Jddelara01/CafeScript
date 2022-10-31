@@ -121,3 +121,13 @@ In this section, I will be going through the different parts of the website and 
             - Largest function has 24 statements in it, while the median is 12.
             - The most complex function has a cyclomatic complexity value of 7 while the median is 3.
             - One warning, but it should be okay as I have to use a global variable.
+        - userLogin.js
+            - There are 6 functions in this file.
+            - Function with the largest signature take 1 arguments, while the median is 0.
+            - Largest function has 16 statements in it, while the median is 2.
+            - The most complex function has a cyclomatic complexity value of 4 while the median is 1.
+        - userRegistration.js
+            - There are 6 functions in this file.
+            - Function with the largest signature take 1 arguments, while the median is 0.
+            - Largest function has 6 statements in it, while the median is 2.5.
+            - The most complex function has a cyclomatic complexity value of 4 while the median is 1.

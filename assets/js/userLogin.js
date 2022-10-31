@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed for login page');
     loginUser();
@@ -15,8 +17,8 @@ function loginUser() {
 function goSignUp() {
     let select = document.getElementById("signUpBtn");
     select.addEventListener("click", function () {
-        window.location.href = "signup.html"
-    })
+        window.location.href = "signup.html";
+    });
 }
 
 /**
@@ -32,7 +34,7 @@ function login() {
 
         if (findUser) {
             if (findUser.password === userPsw) {
-                currentUser = findUser.name
+                currentUser = findUser.name;
                 localStorage.setItem("CURRENT", currentUser);
                 alert("Hi " + findUser.name);
             } else {

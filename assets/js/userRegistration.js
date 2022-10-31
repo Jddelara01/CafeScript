@@ -1,3 +1,5 @@
+/*jshint esversion: 6 */
+
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
     getUser();
@@ -24,7 +26,7 @@ function getUser() {
             registerUser();
             alert("Congratulations, you have successully signed up! You can now login!");
         }
-    })
+    });
 }
 
 /**
@@ -33,8 +35,8 @@ function getUser() {
 function cancelReg() {
     let btnCancel = document.getElementById("cancelBtn");
     btnCancel.addEventListener("click", function () {
-        window.location.href = "login.html"
-    })
+        window.location.href = "login.html";
+    });
 }
 
 /**
