@@ -171,3 +171,54 @@ As the website is designed for desktop size device/browser, the images the featu
 | Your Order Page      | - Font size and other elements will be update accordingly. | - Font size and other elements will be update accordingly. |
 | Login Page           | - Login page content will be adjusted accordinly. | - Login page content will be adjusted accordinly. |
 | Footer               | - Font size will become smaller | - N/A |
+
+-----
+
+## Deployment
+As I only used HTML, CSS, JavaScript and LocalStorage, this website is deployed using *GitHub Pages*. The steps to deploy are as follows:
+
+- In the GitHub repository, navigate to the *Settings* tab
+- In the Source section select *Deploy from a branch* option in the drop-down menu
+- In the Branch section select *main* option in the drop-down menu
+- Keep directory set to the */root*.
+- The page will reload with a link to the live site
+
+The live link can be found here - https://jddelara01.github.io/cafe-script/
+
+![Github Deployment Page](/assets/images/deployment.jpg)
+
+-----
+
+## Technologies Used
+
+### IDE
+- [GitPod](https://gitpod.io/)
+
+### Languages and Frameworks/Resources
+- [CSS3](https://www.w3.org/Style/CSS/Overview.en.html)
+- [HTML5](https://developer.mozilla.org/en-US/docs/Learn/HTML)
+- [JavaScript](https://www.javascript.com/)
+- [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+### Project Management and Deployment
+- [GitHub](https://github.com/)
+
+### Other
+- [Chrome DevTools](https://developer.chrome.com/docs/devtools/)
+- [Google Fonts](https://fonts.google.com/)
+- [Fontawesome 6](https://fontawesome.com/)
+- [Slack](https://slack.com/intl/en-ie/)
+
+-----
+
+## Credits
+
+### Content
+ - Some of the icons the website were taken from [Fontawesome 6](https://fontawesome.com/)
+ - The fonts used were taken from [Google Fonts](https://fonts.google.com/)
+ - The addOrder functionality was inspired by this video [Create a Shopping Cart...](https://www.youtube.com/watch?v=UcrypywtAm0&t=1460s&ab_channel=CodeExplained)
+ - Add/store items in localStorage from [StackOverflow](https://stackoverflow.com/questions/12162786/adding-new-objects-to-localstorage)
+ - In general, I got some of my ideas and correct syntax from [w3c](https://www.w3schools.com/jsref/jsref_obj_array.asp)
+
+ ### Media
+- The background image was taken from an free open source site [Pexels](https://www.pexels.com/)
