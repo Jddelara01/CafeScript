@@ -138,6 +138,11 @@ In this section, I will be going through the different parts of the website and 
             - The most complex function has a cyclomatic complexity value of 4 while the median is 2.
             - Three warnings (Functions declared within loops referencing an outer scoped variable may lead to confusing semantics) but should be okay as I have to use a global variable.
 
+- _Lighthouse Report (from Chrome Devtools)_
+    - All pages of the website has rating of 75 and above when it comes to Performance, Accessibility, Best Practices and SEO
+
+![Lighthouse_Report](/assets/images/lighthousereport.jpg) 
+
 ### Known Issues
 
 - Delete button functionality

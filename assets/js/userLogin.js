@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed for login page');
     loginUser();
     goSignUp();
+    console.log(JSON.parse(localStorage.getItem("USERS")));
 });
 
 /**
@@ -28,9 +29,7 @@ function login() {
     let userEmail = document.getElementById("loginEmail").value;
     let userPsw = document.getElementById("loginPsw").value;
     if (localStorage.getItem("USERS")) {
-        let usersStored = JSON.parse(localStorage.getItem("USERS")); // convert to array
-
-        let findUser = usersStored.find(user => user.email === userEmail);
+        let findUser = registeredUsers.find(user => user.email === userEmail);
 
         if (findUser) {
             if (findUser.password === userPsw) {

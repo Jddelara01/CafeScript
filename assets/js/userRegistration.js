@@ -60,7 +60,6 @@ function registerUser() {
  * check if name is already used
  */
 function checkUser(userValue) {
-    //let regUser = JSON.parse(localStorage.getItem("USERS"));
     let findDetails = registeredUsers.find(user => user.name === userValue);
 
     if (findDetails) {
