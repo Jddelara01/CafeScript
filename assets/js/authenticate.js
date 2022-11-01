@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
-// if a user is logged in in the system
 
+// if a user is logged in in the system
 document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed for authentication');
     logOutUser();
@@ -17,7 +17,7 @@ function authenticated() {
     let hideLink = document.getElementById("loginPage");
     let displayUserName = document.getElementById("displayUser");
     console.log(currentUser);
-    if(currentUser) {
+    if (currentUser) {
         displayUserName.innerHTML = currentUser;
         displayName.style.display = "block";
         displayLogoutBtn.style.display = "block";

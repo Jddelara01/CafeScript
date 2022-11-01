@@ -82,7 +82,7 @@ In this section, I will be going through the different parts of the website and 
 
 ### Future Development Plans
     - To add a payment functionality. This functionality will then be mandatory for user to complete his/her order.
-    - To create a functionality that will store a receipt in a database and send a receipt to CafeScript cafe everytime a user completes an order so that employers of CafeScript can see the order of each customer.
+    - To create a functionality that will store a receipt in a database and send a receipt to CafeScript cafe designated email address everytime a user completes an order so that employers of CafeScript can see the order of each customer.
 
 ----
 
@@ -127,9 +127,9 @@ In this section, I will be going through the different parts of the website and 
             - Largest function has 16 statements in it, while the median is 2.
             - The most complex function has a cyclomatic complexity value of 4 while the median is 1.
         - userRegistration.js
-            - There are 6 functions in this file.
+            - There are 8 functions in this file.
             - Function with the largest signature take 1 arguments, while the median is 0.
-            - Largest function has 6 statements in it, while the median is 2.5.
+            - Largest function has 7 statements in it, while the median is 2.5.
             - The most complex function has a cyclomatic complexity value of 4 while the median is 1.
         - youOrder.js
             - There are 15 functions in this file.

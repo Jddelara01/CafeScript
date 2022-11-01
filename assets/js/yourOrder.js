@@ -1,12 +1,11 @@
 /*jshint esversion: 6 */
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+    console.log('DOM fully loaded and parsed for Your Order page');
     updateOrder();
     removeOrder();
     updateAmount();
     selectBtnOption();
-    console.log(totalOrderedPrice);
 });
 
 /**
