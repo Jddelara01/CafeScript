@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    console.log('DOM fully loaded and parsed');
+    console.log('DOM fully loaded and parsed for user Registration page');
     getUser();
     cancelReg();
 });
@@ -16,14 +16,15 @@ let uPsw = document.getElementById("userPsw");
 function getUser() {
     let btn = document.getElementById("signUpButton");
     btn.addEventListener("click", function () {
-        if (!uName.checkValidity()) {
-            alert("Input a proper name!");
+        if (checkUser(uName.value) === true) {
+            alert("Name already used, please choose a different name.");
         } else if (!uEmail.checkValidity()) {
             alert("Input a proper email!");
         } else if (!uPsw.checkValidity()) {
             alert("Password already used, choose another password!");
         } else {
             registerUser();
+            window.location.href = "login.html";
             alert("Congratulations, you have successully signed up! You can now login!");
         }
     });
@@ -53,4 +54,18 @@ function registerUser() {
 
     registeredUsers.push(userDetails); // registeredUser is declared in data.js
     localStorage.setItem("USERS", JSON.stringify(registeredUsers)); // convert array into string as localStorage can only accept strings
+}
+
+/**
+ * check if name is already used
+ */
+function checkUser(userValue) {
+    //let regUser = JSON.parse(localStorage.getItem("USERS"));
+    let findDetails = registeredUsers.find(user => user.name === userValue);
+
+    if (findDetails) {
+        return true;
+    } else {
+        return false;
+    }
 }
