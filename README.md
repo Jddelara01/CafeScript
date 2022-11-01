@@ -1,5 +1,5 @@
 # CafeScript
-! [Responsive Mockup]
+![Responsive Mockup](/assets/images/pp2responsivemockup.jpg)
 
 CafeScript is a fully responsive website that can be used by customers of CafeScript cafe to order their coffee/tea/pastry online and user can then just collect their order in the CafeScript shop. The website will help users/customer of CafeScipt cafe avoid queuing in the cafe and speed up the process of ordering coffee/tea/pastry from CafeScript cafe.
 
